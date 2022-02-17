@@ -1,0 +1,44 @@
+@import "src/styles/variables";
+
+.todoList {
+  padding: 50px 0;
+
+  li {
+    list-style: none;
+    color: $text-black;
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+
+    strong {
+      padding-left: 10px;
+    }
+  }
+}
+
+.main {
+  &-form {
+    margin-top: 30px;
+
+    input[type=text] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid $text-black;
+      margin-right: 20px;
+    }
+
+  }
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  &:hover{
+    cursor: pointer;
+    background-color: $secondary-color;
+  }
+}

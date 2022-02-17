@@ -1,0 +1,9 @@
+@import "src/styles/variables";
+
+.header {
+  background: $main-color;
+  padding: 20px 0;
+  h1 {
+    color: $text-white;
+  }
+}
