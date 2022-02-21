@@ -1,12 +1,13 @@
 import React, {useState} from "react"
 
-function AddTodo({onCreate}) {
+import todo from "../store/todo";
+function AddTodo() {
     const [value, setValue] = useState('')
 
     function submitHandler(event) {
         event.preventDefault()
         if (value.trim()) {
-            onCreate(value)
+            todo.addTodoItem(value)
             setValue('')
         }
     }
