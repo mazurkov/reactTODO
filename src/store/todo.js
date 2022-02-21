@@ -14,7 +14,7 @@ class Todo {
     }
 
     addTodo(todo) {
-       this.todos.push({id: 9999, title: todo, completed: false})
+       this.todos.push({id: this.getLastKey(), title: todo, completed: false})
     }
 
     removeTodo(id) {
@@ -35,8 +35,12 @@ class Todo {
             })
     }
 
-    getlastKey(){
-        console.log(this.todos)
+    getLastKey() {
+        const ids = this.todos.map(object => {
+            return object.id;
+        });
+        const key = Math.max(...ids)
+        return key + 1
     }
 
 

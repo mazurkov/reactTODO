@@ -1,7 +1,6 @@
 import './styles/App.css';
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-import Content from "./content/Content";
 import Todo from "./content/Todo";
 
 function App() {
