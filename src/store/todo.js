@@ -10,20 +10,23 @@ class Todo {
     ]
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this, {}, { deep: true })
     }
 
     addTodo(todo) {
-       this.todos.push({id: this.getLastKey(), title: todo, completed: false})
+        if (todo.target.value.trim()) {
+            this.todos.push({id: this.getLastKey(), title: todo.target.value, completed: false})
+            todo.target.value= ""
+        }
+
     }
 
     removeTodo(id) {
         this.todos = this.todos.filter(todo => todo.id !== id)
-        console.log('removeTodo')
+
     }
 
     completeTodo(id) {
-        console.log('completeTodo')
         this.todos = this.todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} :  todo  )
     }
 

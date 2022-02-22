@@ -1,20 +1,28 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 import todo from "../store/todo";
+import AddTodo from "./AddTodo";
+import FetchTodo from "./FetchTodo";
+import TodoItem from "./TodoItem";
+import "./todolist.scss"
 
 const Todo = observer(() => {
-    console.log('render')
     return (
-        <div>
-            <div> <input type="text" onChange={(e) => { todo.newTodo = e.target.value }}/> <button onClick={ ()=> todo.addTodo(todo.newTodo) }>Add todo</button>
+        <div className="main">
+            <div className="container">
+                <AddTodo/>
+                <FetchTodo/>
+                <ul className="todoList">
+                    {todo.todos.map(item => {
+                            return <TodoItem
+                                key={item.id}
+                                item={item}
+                            />
+                        }
+                      )
+                    }
+                </ul>
             </div>
-            <button onClick={() => todo.fetchTodos()}>Fetch Todos</button>
-            {
-                todo.todos.map(item => <div className="todo" key={item.id}>
-                    <input type="checkbox" checked={item.completed} onChange={() => todo.completeTodo(item.id)}/>
-                    {item.title}
-                    <button onClick={() => todo.removeTodo(item.id)}>X</button>
-                </div>)}
         </div>
     )
 })
