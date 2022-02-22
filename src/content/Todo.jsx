@@ -13,14 +13,7 @@ const Todo = observer(() => {
                 <AddTodo/>
                 <FetchTodo/>
                 <ul className="todoList">
-                    {todo.todos.map(item => {
-                            return <TodoItem
-                                key={item.id}
-                                item={item}
-                            />
-                        }
-                      )
-                    }
+                    { todo.todos.length ?  (todo.todos.map( item => { return <TodoItem key={item.id} item={item} /> } )) : ( <li>List is empty</li> ) }
                 </ul>
             </div>
         </div>

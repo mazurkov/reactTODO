@@ -14,16 +14,14 @@ class Todo {
     }
 
     addTodo(todo) {
-        if (todo.target.value.trim()) {
+        if (todo !== undefined) {
             this.todos.push({id: this.getLastKey(), title: todo.target.value, completed: false})
             todo.target.value= ""
         }
-
     }
 
     removeTodo(id) {
         this.todos = this.todos.filter(todo => todo.id !== id)
-
     }
 
     completeTodo(id) {
